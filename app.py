@@ -19,28 +19,10 @@ class GirlType(Document): #COLLECTION
 #create server
 app = Flask(__name__)
 
-g = [
-{
-'name' : 'Atari',
-'image' : "https://dvsgaming.org/wp-content/uploads/2017/06/do-atari-atari-na-mdia-downloads-poltica-de-privacidade-contato.jpg",
-'description' : 'Là công ty làm máy chơi game và xuất bản game lớn nhất trong những năm 80 và cũng là công ty quan trọng nhất trong lịch sử game, Atari là ông anh lớn của game trong cuối thập kỷ 70 đến thập kỷ 80.'
-},
-{
-'name' : "Nintendo" ,
-'image' : "https://www.nintendo.com/images/social/fb-400x400.jpg",
-'description' : "Nintendo được thành lập vào năm 1889 nhưng đến năm 1985 mới tham gia vào ngành máy chơi game khi tạo ra máy NES lừng danh, Ninendo luôn sáng tạo thậm chí đến ngày nay. "
-},
-{
-'name' : "Sega" ,
-'image' : "https://pbs.twimg.com/profile_images/834363762912219136/shGE2Cho.jpg",
-'description' : "Thành lập năm 1960, Sega bắt đầu làm máy arcade đến năm 1983 khi ra máy SG-1000, nhập vào ngành máy chơi game nhưng đến năm 1988 ra máy Sega Genesis để tranh giành với SNES của Nintendo."
-}
-
-]
 #Configure
 @app.route("/")
 def index():
-    return render_template("index.html", girl_type = g)
+    return render_template("index.html", girl_type = GirlType.objects())
 
 @app.route("/about")
 def about():
